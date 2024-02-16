@@ -5,6 +5,9 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import Splash from './Screens/Splash';
 import Login from './Screens/Login';
 import Sign_Up from './Screens/Sign_Up';
+import Home from './Screens/Home';
+import General from './Screens/General';
+import Detail from './Screens/Detail';
 
 
 const Stack = createNativeStackNavigator();
@@ -28,7 +31,17 @@ const App = () => {
           component={Sign_Up}
           options={{ title: 'Sign In' }}
         />
-        {/*<Stack.Screen name="Profile" component={ProfileScreen} />*/}
+        <Stack.Screen
+          name="Home"
+          component={Home}
+          options={{ title: 'Welcome' }}
+        />
+        <Stack.Screen
+          name="General"
+          component={General}
+          options={{ title: 'Welcome' }}
+        />
+        <Stack.Screen name="Detail" component={Detail} />
       </Stack.Navigator>
     </NavigationContainer>
   )
