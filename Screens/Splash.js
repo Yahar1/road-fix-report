@@ -13,6 +13,9 @@ const Splash = ({ navigation }) => {
         onLongPress={() => console.warn('long press')}
       >
         <View style={styles.header}>
+         <View> 
+           <Text> wowwww </Text>
+         </View>
           <View style={styles.reportedFrame}>
             <Text style={styles.pressableBtn}>Reported</Text>
             <Text style={styles.pressableBtn}>Reported</Text>
