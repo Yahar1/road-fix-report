@@ -8,10 +8,6 @@ const Splash = ({ navigation }) => {
 
   return (
     <View style={styles.main}>
-      <Pressable
-        onPress={onPress}  // Call the onPress function when Pressable is pressed
-        onLongPress={() => console.warn('long press')}
-      >
         <View style={styles.header}>
           <View style={styles.reportedFrame}>
             <Text style={styles.pressableBtn}>Reported</Text>
@@ -25,7 +21,6 @@ const Splash = ({ navigation }) => {
         <View style={styles.viewMoreContainer}>
           <Text style={[styles.pressableBtn, styles.viewMoreBtn]}>View More...</Text>
         </View>
-      </Pressable>
     </View>
   );
 };

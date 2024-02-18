@@ -8,6 +8,10 @@ const Login = ({ navigation }) => {
   });
 
   const onPress = () => {
+    navigation.navigate('General');
+    // Add your logic here for handling the sign-in button press
+  };
+  const onPress1 = () => {
     navigation.navigate('Sign_Up');
     // Add your logic here for handling the sign-in button press
   };
@@ -64,14 +68,14 @@ const Login = ({ navigation }) => {
           <View style={styles.formAction}>
             <TouchableOpacity onPress={onPress}>
               <View style={styles.btn}>
-                <Text style={styles.btnText}>Sign in</Text>
+                <Text style={styles.btnText}>Log in</Text>
               </View>
             </TouchableOpacity>
           </View>
 
           <TouchableOpacity
             onPress={() => {
-              // handle link
+              navigation.navigate('Sign_Up');
             }}
             style={{ marginTop: 'auto' }}>
             <Text style={styles.formFooter}>

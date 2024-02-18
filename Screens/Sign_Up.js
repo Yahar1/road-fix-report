@@ -11,7 +11,7 @@ export default function Sign_Up({ navigation }) {
   });
 
   const onPress = () => {
-    navigation.navigate('General');                                           
+    navigation.navigate('Login');                                           
     // Add your logic here for handling the sign-up button press
   };
 
@@ -93,11 +93,11 @@ export default function Sign_Up({ navigation }) {
 
             <TouchableOpacity
               onPress={() => {
-                // handle link
+                navigation.navigate('Login');
               }}>
               <Text style={styles.formFooter}>
                 Already have an account?{' '}
-                <Text style={{ textDecorationLine: 'underline' }}>Sign in</Text>
+                <Text style={{ textDecorationLine: 'underline' }}>Log in</Text>
               </Text>
             </TouchableOpacity>
           </View>

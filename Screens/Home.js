@@ -2,7 +2,11 @@ import { View, Text, ScrollView, StyleSheet, Image, Button } from 'react-native'
 import React from 'react'
 import data from './Data.json'
 
-const Home = () => {
+  const Home = ({ navigation }) => {
+    const onPress = () => {
+      navigation.navigate('Home');
+    };
+
   return (
     <ScrollView>
       {data.map(d => (
