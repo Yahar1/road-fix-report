@@ -3,7 +3,7 @@ import React from 'react'
 
 const General = ({ navigation }) => {
     const onPress = () => {
-      navigation.navigate('Home');
+      navigation.navigate('Detail');
     };
 
   return (

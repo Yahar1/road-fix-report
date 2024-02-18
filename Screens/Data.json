@@ -1,0 +1,28 @@
+[
+    {
+        "id" : 1,
+        "name" : "ถนน",
+        "detail" : "ถน๊นนนน",
+        "coverimage" : "ถนนพัง1.jpg",
+        "latitude" : 35.672812, 
+        "longitude" : 139.762709
+    },
+
+    {
+        "id" : 2,
+        "name" : "ถนน",
+        "detail" : "ถน๊นนนน",
+        "coverimage" : "ถนนพัง2.jpg", 
+        "latitude" : 35.675343, 
+        "longitude" : 139.751836
+    },
+
+    {
+        "id" : 3,
+        "name" : "ถนน",
+        "detail" : "ถน๊นนนน",
+        "coverimage" : "ถนนพัง3.jpg",
+        "latitude" : 35.694531, 
+        "longitude" : 139.724583
+    }
+]

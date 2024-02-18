@@ -1,42 +1,34 @@
-import { View, Text, ScrollView, Image, Pressable } from 'react-native'
+import { View, Text, ScrollView, StyleSheet, Image, Button } from 'react-native'
 import React from 'react'
+import data from './Data.json'
 
-const Home = ({navigation}) => {
-  const onPressItem = (id, name) => {
-    navigation.navigate('Detail', {id: id, name: name})
-  }
-
+const Home = () => {
   return (
-    <ScrollView style={{padding: 10}}>
-      <View>
-        <Text style={{fontSize: 30}}>ถนน</Text>
-      </View>
-
-      <View style={{marginTop: 10}}> 
-       <Pressable onPress={() => onPressItem(1, 'ตำแหน่ง GPS')}>                                                          
-        <Image source={require('../img/ถนนพัง1.jpg')} style={{width: '100%', height: 333}} />
-       <Text style={{fontSize: 20, marginTop: 10}}>ตำแหน่ง GPS</Text>                          
-       <Text>รายละเอียดในเพื้นที่</Text>                                                              
-       </Pressable>    
-      </View>
-
-      <View style={{marginTop: 10}}> 
-      <Pressable onPress={() => onPressItem(2, 'ตำแหน่ง GPS')}> 
-        <Image source={require('../img/ถนนพัง2.jpg')} style={{width: '100%', height: 333}} />
-       <Text style={{fontSize: 20, marginTop: 10}}>ตำแหน่ง GPS</Text>                              
-       <Text>รายละเอียดในเพื้นที่</Text>                                  
-       </Pressable>                         
-      </View>
-      
-      <View style={{marginTop: 10}}> 
-      <Pressable onPress={() => onPressItem(3, 'ตำแหน่ง GPS')}> 
-        <Image source={require('../img/ถนนพัง3.jpg')} style={{width: '100%', height: 333}} />
-       <Text style={{fontSize: 20, marginTop: 10}}>ตำแหน่ง GPS</Text>                          
-       <Text>รายละเอียดในเพื้นที่</Text>    
-       </Pressable>                                                       
-      </View>
+    <ScrollView>
+      {data.map(d => (
+        <View key={d.id} style = {{ marginBottom: 10}}>
+        <Image
+          style={styles.coverImage}         
+          source={{ uri: d.coverimage }}                          //รูปภาพไม่ขึ้น
+        /> 
+        <View style = {styles.textBox}>
+          <Text style = {{ fontSize: 20}}>{d.name}</Text>
+          <Text>{d.detail}</Text>                  
+        </View>
+      </View>        
+      ))}          
     </ScrollView>
   )
 }
+
+const styles = StyleSheet.create({
+    coverImage: {
+        width: "100%",
+        height: 300,
+    },
+    textBox: {
+      margin: 10
+    }
+})
 
 export default Home
