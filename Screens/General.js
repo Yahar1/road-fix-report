@@ -3,15 +3,11 @@ import React from 'react'
 
 const General = ({ navigation }) => {
     const onPress = () => {
-      navigation.navigate('Detail');
+      navigation.navigate('more');
     };
 
   return (
     <View style={styles.main}>
-      <Pressable
-        onPress={onPress}  // Call the onPress function when Pressable is pressed
-        onLongPress={() => console.warn('long press')}
-      >
         <View style={styles.header}>
           <View style={styles.reportedFrame}>
             <Text style={styles.pressableBtn}>Reported</Text>
@@ -22,10 +18,16 @@ const General = ({ navigation }) => {
             <Text style={styles.pressableBtn}>Reported</Text>
           </View>
         </View>
+        <Pressable
+        onPress={() => {
+                // Implement your navigation logic here
+                navigation.navigate('Detail');
+              }}
+      >
         <View style={styles.viewMoreContainer}>
           <Text style={[styles.pressableBtn, styles.viewMoreBtn]}>Add More Report...</Text>
         </View>
-      </Pressable>
+        </Pressable>
     </View>
   );
 };

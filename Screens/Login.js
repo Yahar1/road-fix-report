@@ -9,11 +9,9 @@ const Login = ({ navigation }) => {
 
   const onPress = () => {
     navigation.navigate('General');
-    // Add your logic here for handling the sign-in button press
   };
   const onPress1 = () => {
     navigation.navigate('Sign_Up');
-    // Add your logic here for handling the sign-in button press
   };
 
   return (
@@ -29,7 +27,7 @@ const Login = ({ navigation }) => {
           />
 
           <Text style={styles.title}>
-           <Text style={{ color: '#075eec' }}>ถนน</Text>
+           <Text style={{ color: '#800000' }}>ถนน</Text>
           </Text>
 
           <Text style={styles.subtitle}>ยินดีต้อนรับ</Text>
@@ -37,7 +35,7 @@ const Login = ({ navigation }) => {
 
         <View style={styles.form}>
           <View style={styles.input}>
-            <Text style={styles.inputLabel}>Email address</Text>
+            <Text style={styles.inputLabel}>อีเมล์</Text>
 
             <TextInput
               autoCapitalize="none"
@@ -52,7 +50,7 @@ const Login = ({ navigation }) => {
           </View>
 
           <View style={styles.input}>
-            <Text style={styles.inputLabel}>Password</Text>
+            <Text style={styles.inputLabel}>รหัสผ่าน</Text>
 
             <TextInput
               autoCorrect={false}
@@ -68,7 +66,7 @@ const Login = ({ navigation }) => {
           <View style={styles.formAction}>
             <TouchableOpacity onPress={onPress}>
               <View style={styles.btn}>
-                <Text style={styles.btnText}>Log in</Text>
+                <Text style={styles.btnText}>ลงชื่อเข้าใช้</Text>
               </View>
             </TouchableOpacity>
           </View>
@@ -79,8 +77,8 @@ const Login = ({ navigation }) => {
             }}
             style={{ marginTop: 'auto' }}>
             <Text style={styles.formFooter}>
-              Don't have an account?{' '}
-              <Text style={{ textDecorationLine: 'underline' }}>Sign up</Text>
+              ยังไม่ได้สมัครลงชื่อเข้าใช้ ?{' '}
+              <Text style={{ textDecorationLine: 'underline' }}>ลงทะเบียน</Text>
             </Text>
           </TouchableOpacity>
         </View>
@@ -160,8 +158,8 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
     paddingHorizontal: 20,
     borderWidth: 1,
-    backgroundColor: '#075eec',
-    borderColor: '#075eec',
+    backgroundColor: '#FFA07A',
+    borderColor: '#FFFFE0',
   },
   btnText: {
     fontSize: 18,

@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, Image, Pressable } from 'react-native';
+import { View, Text, StyleSheet, Image, Pressable, ImageBackground } from 'react-native';
 import React from 'react';
 
 const Splash = ({ navigation }) => {
@@ -7,11 +7,21 @@ const Splash = ({ navigation }) => {
   };
 
   return (
+    
     <View style={styles.main}>
         <View style={styles.header}>
           <View style={styles.reportedFrame}>
-            <Text style={styles.pressableBtn}>Reported</Text>
-            <Text style={styles.pressableBtn}>Reported</Text>
+            <ImageBackground
+              source={require('./../img/ถนนพัง1.jpg')} 
+              resizeMode="cover"
+              style={{borderRadius:99, borderStartWidth:10,}} 
+            >
+          <View>
+            <Text style={styles.pressableBtn1}>     ตำบล ....... หมู่ ......</Text>
+            <Text style={styles.pressableBtn2}>       Reported</Text>
+        </View>
+          </ImageBackground>
+
             <Text style={styles.pressableBtn}>Reported</Text>
             <Text style={styles.pressableBtn}>Reported</Text>
             <Text style={styles.pressableBtn}>Reported</Text>
@@ -26,10 +36,26 @@ const Splash = ({ navigation }) => {
 };
 
 const styles = StyleSheet.create({
+  pressableBtn2: {
+    color: '#fff',
+    margin: 8,
+    fontSize: 16,
+    textAlign: 'left',
+    shadowColor: '#000',
+    borderRadius: 10,
+  },
+  pressableBtn1: {
+    color: '#fff',
+    margin: 8,
+    fontSize: 24,
+    textAlign: 'left',
+    shadowColor: '#000',
+    borderRadius: 10,
+  },
   pressableBtn: {
     backgroundColor: '#BEBEBE',
     color: '#fff',
-    padding: 10,
+    padding: 20,
     margin: 10,
     fontSize: 24,
     textAlign: 'center',
@@ -47,10 +73,10 @@ const styles = StyleSheet.create({
     padding: 20,
   },
   reportedFrame: {
-    borderWidth: 2,
+    borderWidth: 20,
     borderColor: '#FFDEAD',
-    padding: 10,
-    borderRadius: 8,
+    padding: 0,
+    borderRadius: 2,
     backgroundColor: '#FFDEAD',
   },
   viewMoreContainer: {

@@ -19,15 +19,13 @@ export default function Sign_Up({ navigation }) {
     <SafeAreaView style={{ flex: 1, backgroundColor: '#fff' }}>
       <View style={styles.container}>
         <View style={styles.header}>
-          <Text style={styles.title}>Getting Started</Text>
-
-          <Text style={styles.subtitle}>Create an account to continue</Text>
+          <Text style={styles.title}>ลงชื่อเข้าใช้</Text>
         </View>
 
         <KeyboardAwareScrollView>
           <View style={styles.form}>
             <View style={styles.input}>
-              <Text style={styles.inputLabel}>Full name</Text>
+              <Text style={styles.inputLabel}>ชื่อ-นามสกุล</Text>
 
               <TextInput
                 onChangeText={(fullname) => setForm({ ...form, fullname })}
@@ -39,7 +37,7 @@ export default function Sign_Up({ navigation }) {
             </View>
 
             <View style={styles.input}>
-              <Text style={styles.inputLabel}>Email address</Text>
+              <Text style={styles.inputLabel}>อีเมล์</Text>
 
               <TextInput
                 autoCapitalize="none"
@@ -54,7 +52,7 @@ export default function Sign_Up({ navigation }) {
             </View>
 
             <View style={styles.input}>
-              <Text style={styles.inputLabel}>Password</Text>
+              <Text style={styles.inputLabel}>รหัสผ่าน</Text>
 
               <TextInput
                 autoCorrect={false}
@@ -68,7 +66,7 @@ export default function Sign_Up({ navigation }) {
             </View>
 
             <View style={styles.input}>
-              <Text style={styles.inputLabel}>Confirm Password</Text>
+              <Text style={styles.inputLabel}>ยืนยันรหัสผ่าน</Text>
 
               <TextInput
                 autoCorrect={false}
@@ -86,7 +84,7 @@ export default function Sign_Up({ navigation }) {
             <View style={styles.formAction}>
               <TouchableOpacity onPress={onPress}>
                 <View style={styles.btn}>
-                  <Text style={styles.btnText}>Sign up</Text>
+                  <Text style={styles.btnText}>สมัคร</Text>
                 </View>
               </TouchableOpacity>
             </View>
@@ -96,8 +94,8 @@ export default function Sign_Up({ navigation }) {
                 navigation.navigate('Login');
               }}>
               <Text style={styles.formFooter}>
-                Already have an account?{' '}
-                <Text style={{ textDecorationLine: 'underline' }}>Log in</Text>
+                ลงชื่อเข้าใช้อยู่แล้ว ?{' '}
+                <Text style={{ textDecorationLine: 'underline' }}>ลงชื่อเข้าใช้</Text>
               </Text>
             </TouchableOpacity>
           </View>
