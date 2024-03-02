@@ -55,7 +55,7 @@ const General = () => {
               <Text style={styles.pressableBtn}>Reported</Text>
               <Text style={styles.pressableBtn}>Reported</Text>
               <Text style={styles.pressableBtn}>Reported</Text>
-              
+              <Text style={styles.pressableBtn}>Reported</Text>
           </View>
 
         </View>
@@ -119,7 +119,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#87CEFA',
   },
   viewMoreContainer: {
-    marginTop: 20,
+    marginTop: 5,
   },
 });
 
