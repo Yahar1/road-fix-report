@@ -1,48 +1,106 @@
-import { View, Text, StyleSheet, Image, Pressable, Button } from 'react-native'
-import React from 'react'
+import { View, Text, StyleSheet, Pressable, ImageBackground, ScrollView } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+import React from 'react';
 
-const General = ({ navigation }) => {
-    const onPress = () => {
-      navigation.navigate('more');
-    };
+const General = () => {
+  const navigation = useNavigation();
+
+  const handlePress = (imageNumber) => navigation.navigate('Detail', { imageNumber });
 
   return (
-    <View style={styles.main}>
+    <ScrollView>
+      <View style={styles.main}>
         <View style={styles.header}>
           <View style={styles.reportedFrame}>
-            <Text style={styles.pressableBtn}>Reported</Text>
-            <Text style={styles.pressableBtn}>Reported</Text>
-            <Text style={styles.pressableBtn}>Reported</Text>
-            <Text style={styles.pressableBtn}>Reported</Text>
-            <Text style={styles.pressableBtn}>Reported</Text>
-            <Text style={styles.pressableBtn}>Reported</Text>
+            <Pressable onPress={() => handlePress(1)} style={{ marginBottom: 15 }}>
+              <ImageBackground
+                source={require('../img/ถนนพัง1.jpg')}
+                resizeMode="cover"
+                style={{ borderRadius: 15, overflow: 'hidden', borderStartWidth: 10, flex: 1 }}
+              >
+                <View>
+                  <Text style={styles.pressableBtn1}>ตำบล ....... หมู่ ......</Text>
+                  <Text style={styles.pressableBtn2}>Reported</Text>
+                </View>
+              </ImageBackground>
+            </Pressable>
+
+            <Pressable onPress={() => handlePress(2)} style={{ marginBottom: 15 }}>
+              <ImageBackground
+                source={require('../img/ถนนพัง2.jpg')}
+                resizeMode="cover"
+                style={{ borderRadius: 15, overflow: 'hidden', borderStartWidth: 10, flex: 1 }}
+              >
+                <View>
+                  <Text style={styles.pressableBtn1}>ตำบล ....... หมู่ ......</Text>
+                  <Text style={styles.pressableBtn2}>Reported</Text>
+                </View>
+              </ImageBackground>
+            </Pressable>
+              
+
+            <Pressable onPress={() => handlePress(3)} style={{ marginBottom: 15 }}>
+              <ImageBackground
+                source={require('../img/ถนนพัง3.jpg')}
+                resizeMode="cover"
+                style={{ borderRadius: 15, overflow: 'hidden', borderStartWidth: 10, flex: 1 }}
+              >
+                <View>
+                  <Text style={styles.pressableBtn1}>ตำบล ....... หมู่ ......</Text>
+                  <Text style={styles.pressableBtn2}>Reported</Text>
+                </View>
+              </ImageBackground>
+
+            </Pressable>
+              <Text style={styles.pressableBtn}>Reported</Text>
+              <Text style={styles.pressableBtn}>Reported</Text>
+              <Text style={styles.pressableBtn}>Reported</Text>
+              
           </View>
+
         </View>
-        <Pressable
+      </View>
+      <Pressable
         onPress={() => {
-                // Implement your navigation logic here
-                navigation.navigate('Detail');
-              }}
+          // Implement your navigation logic here
+          navigation.navigate('Detail');
+        }}
       >
         <View style={styles.viewMoreContainer}>
           <Text style={[styles.pressableBtn, styles.viewMoreBtn]}>Add More Report...</Text>
         </View>
-        </Pressable>
-    </View>
+      </Pressable>
+    </ScrollView>
   );
 };
 
 const styles = StyleSheet.create({
-  pressableBtn: {
+  pressableBtn2: {
+    color: '#fff',
+    margin: 8,
+    fontSize: 16,
+    textAlign: 'left',
+    shadowColor: '#000',
+    borderRadius: 10,
+  },
+  pressableBtn1: {
+    color: '#fff',
+    margin: 8,
+    fontSize: 24,
+    textAlign: 'left',
+    shadowColor: '#000',
+    borderRadius: 10,
+  },
+  pressableBtn: {                           //------------------------------------ ปรับ
     backgroundColor: '#BEBEBE',
     color: '#fff',
-    padding: 10,
+    padding: 20,                         
     margin: 10,
     fontSize: 24,
     textAlign: 'center',
-    shadowColor: '#fff',
+    shadowColor: '#000',
     elevation: 4,
-    borderRadius: 10,
+    borderRadius: 10,          
   },
   viewMoreBtn: {
     backgroundColor: '#4169E1',
@@ -61,8 +119,8 @@ const styles = StyleSheet.create({
     backgroundColor: '#87CEFA',
   },
   viewMoreContainer: {
-    marginTop: 40,
+    marginTop: 20,
   },
 });
 
-export default General
+export default General;

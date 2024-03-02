@@ -1,24 +1,24 @@
-import { View, Text, StyleSheet, Image, Pressable, ImageBackground, Button, TouchableOpacity} from 'react-native';
+import { View, Text, StyleSheet, Pressable, ImageBackground, ScrollView, } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 
 const Splash = () => {
   const navigation = useNavigation();
 
-  const imageNumbers = [1, 2, 3];
-
   const handlePress = (imageNumber) =>
     navigation.navigate('General_Users', { imageNumber });
 
   return (
+    <ScrollView>
     <View style={styles.main}>
       <View style={styles.header}>
         <View style={styles.reportedFrame}>
-          <Pressable onPress={() => handlePress(1)}>
+        
+         <Pressable onPress={() => handlePress(1)} style={{ marginBottom: 15  }}>    
             <ImageBackground
               source={require('../img/ถนนพัง1.jpg')} 
               resizeMode="cover"
-              style={{ borderRadius: 99, borderStartWidth: 10 }} 
+              style={{ borderRadius: 15, overflow: 'hidden', borderStartWidth: 10, flex: 1 ,  }}
             >
               <View>
                 <Text style={styles.pressableBtn1}>     ตำบล ....... หมู่ ......</Text>
@@ -27,11 +27,11 @@ const Splash = () => {
             </ImageBackground>
           </Pressable>
 
-          <Pressable onPress={() => handlePress(2)}>
+          <Pressable onPress={() => handlePress(2)} style={{ marginBottom: 15 }}>
             <ImageBackground
               source={require('../img/ถนนพัง2.jpg')} 
               resizeMode="cover"
-              style={{ borderRadius: 99, borderStartWidth: 10 }} 
+              style={{ borderRadius: 15, overflow: 'hidden', borderStartWidth: 10, flex: 1 }} 
             >
               <View>
                 <Text style={styles.pressableBtn1}>     ตำบล ....... หมู่ ......</Text>
@@ -40,11 +40,11 @@ const Splash = () => {
             </ImageBackground>
           </Pressable>
 
-          <Pressable onPress={() => handlePress(3)}>
+          <Pressable onPress={() => handlePress(3)} style={{ marginBottom: 15 }}>
             <ImageBackground
               source={require('../img/ถนนพัง3.jpg')} 
               resizeMode="cover"
-              style={{ borderRadius: 99, borderStartWidth: 10 }} 
+              style={{ borderRadius: 15, overflow: 'hidden', borderStartWidth: 10, flex: 1 }} 
             >
               <View>
                 <Text style={styles.pressableBtn1}>     ตำบล ....... หมู่ ......</Text>
@@ -52,24 +52,17 @@ const Splash = () => {
               </View>
             </ImageBackground>
           </Pressable>
-
+          <Text style={styles.pressableBtn}>Reported</Text>
+          <Text style={styles.pressableBtn}>Reported</Text>
+          <Text style={styles.pressableBtn}>Reported</Text>
+          <Text style={styles.pressableBtn}>Reported</Text>
+          <Text style={styles.pressableBtn}>Reported</Text>
           <Text style={styles.pressableBtn}>Reported</Text>
           <Text style={styles.pressableBtn}>Reported</Text>
         </View>
       </View>
-
-      <TouchableOpacity
-        style={{ marginTop: 10, marginBottom: 10 }}
-        onPress={() => {
-          imageNumbers.forEach((number) => {
-            handlePress(number);
-          });
-        }}
-      >
-        <Text style={[styles.pressableBtn, styles.viewMoreBtn]}>View More...</Text>
-      </TouchableOpacity>
-
     </View>
+    </ScrollView>
   );
 };
 
@@ -90,16 +83,17 @@ const styles = StyleSheet.create({
     shadowColor: '#000',
     borderRadius: 10,
   },
-  pressableBtn: {
+  pressableBtn: {                           //------------------------------------ ปรับ
     backgroundColor: '#BEBEBE',
     color: '#fff',
-    padding: 20,
+    padding: 20,                         
     margin: 10,
     fontSize: 24,
     textAlign: 'center',
     shadowColor: '#000',
     elevation: 4,
     borderRadius: 10,
+                  
   },
   viewMoreBtn: {
     backgroundColor: '#CD853F',
