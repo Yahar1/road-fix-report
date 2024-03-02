@@ -3,6 +3,7 @@ import { View, Text, Pressable, Image } from 'react-native'
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import Splash from './Screens/Splash';
+import General_Users from './Screens/General_Users';
 import Login from './Screens/Login';
 import Sign_Up from './Screens/Sign_Up';
 
@@ -48,8 +49,14 @@ const App = () => {
             </Pressable>
           ),
         })}
+
         />
-    
+        <Stack.Screen
+          name="General_Users"
+          component={General_Users}
+          options={{ title: 'Back' }}             //======================================= 
+        
+        />                                      
         <Stack.Screen
           name="Login"
           component={Login}
@@ -86,6 +93,7 @@ const App = () => {
             </Pressable>
           ),
         })}
+
         />
         <Stack.Screen
           name="Sign_Up"
@@ -121,6 +129,7 @@ const App = () => {
             </Pressable>
           ),
         })}
+
         />
         <Stack.Screen name="Detail" component={Detail} />
       </Stack.Navigator>
