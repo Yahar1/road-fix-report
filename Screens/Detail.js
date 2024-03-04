@@ -1,5 +1,5 @@
-import { View, Text, Image, Button, Linking, StyleSheet,Pressable, } from 'react-native';
-import React, { useCallback,useState } from 'react';
+import { View, Text, Image, Button, Linking, StyleSheet, Pressable, } from 'react-native';
+import React, { useCallback, useState } from 'react';
 import data from './Data.json'
 import { Dropdown } from 'react-native-element-dropdown';
 
@@ -21,7 +21,7 @@ const data1 = [
   { label: 'ตำบลน้ำรึม', value1: '14' },
 ];
 
-const data2= [
+const data2 = [
   { label: 'หมู่', value2: '15' },
   { label: 'หมู่ 1', value2: '15' },
   { label: 'หมู่ 2', value2: '16' },
@@ -29,7 +29,7 @@ const data2= [
   { label: 'หมู่ 4', value2: '18' },
 ];
 
-const data3= [
+const data3 = [
   { label: '--ไม่ทราบหมายเลขถนน--', value3: '19' },
   { label: 'ทางหลวงแผ่นดินหมายเลข 12 อ.เมืองตาก', value3: '20' },
   { label: 'ทางหลวงแผ่นดินหมายเลข 104 อ.เมืองตาก', value3: '21' },
@@ -38,7 +38,7 @@ const data3= [
   { label: 'ทางหลวงแผ่นดินหมายเลข 1117 อ.อุ้มผาง', value3: '24' },
 ];
 
-const data4= [
+const data4 = [
   { label: '--ไม่ทราบหมายเลขซอย--', value4: '1' },
   { label: 'ซอย 4', value4: '2' },
   { label: 'ซอย 7', value4: '3' },
@@ -62,7 +62,7 @@ const DropdownComponent = () => {
     if (value || isFocus) {
       return (
         <Text style={[styles.label, isFocus && { color: 'blue' }]}>
-          Dropdown label
+
         </Text>
       );
     }
@@ -91,8 +91,8 @@ const DropdownComponent = () => {
         onChange={item => {
           setValue(item.value);
           setIsFocus(false);
-        }}  
-                />
+        }}
+      />
       <Dropdown
         style={[styles.dropdown, isFocus && { borderColor: 'blue' }]}
         placeholderStyle={styles.placeholderStyle}
@@ -156,57 +156,57 @@ const DropdownComponent = () => {
           setIsFocus(false);
         }}
 
-        />
+      />
       <View style={[styles.viewMoreContainer, { marginTop: 20 }]}>
-      <Pressable
-        onPress={() => {
-                // Implement your navigation logic here
-                navigation.navigate('General');      //ไปอีกหน้าใหม่
-              }}         
-      >
-        <View style={styles.viewMoreContainer}>
-          <Text style={[styles.pressableBtn, styles.viewMoreBtn]}>Upload Picture</Text>
-        </View>
+        <Pressable
+          onPress={() => {
+            // Implement your navigation logic here
+            navigation.navigate('General');      //ไปอีกหน้าใหม่
+          }}
+        >
+          <View style={styles.viewMoreContainer}>
+            <Text style={[styles.pressableBtn, styles.viewMoreBtn]}>Upload Picture</Text>
+          </View>
         </Pressable>
 
-      <Pressable
-        onPress={() => {
-                // Implement your navigation logic here
-                navigation.navigate('General');       //ไปอีกหน้าใหม่
-              }}
-      >
-        <View style={styles.viewMoreContainer}>
-          <Text style={[styles.pressableBtn, styles.viewMoreBtn]}>Locate GPS</Text>
-        </View>
+        <Pressable
+          onPress={() => {
+            // Implement your navigation logic here
+            navigation.navigate('General');       //ไปอีกหน้าใหม่
+          }}
+        >
+          <View style={styles.viewMoreContainer}>
+            <Text style={[styles.pressableBtn, styles.viewMoreBtn]}>Locate GPS</Text>
+          </View>
         </Pressable>
-        </View>
+      </View>
 
-        <View style={[styles.viewMoreContainer, { marginTop: 0, flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center'}]}>
-          <Pressable
-            onPress={() => {
-              // Implement your navigation logic here
-              {/* navigation.navigate('General'); */}                    
-            }}
-          >
-            <View style={[styles.viewMoreContainer]}>
-              <Text style={[styles.pressableBtn, styles.viewMoreBtn]}>Decline</Text>
-            </View>
-          </Pressable>
+      <View style={[styles.viewMoreContainer, { marginTop: 0, flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }]}>
+        <Pressable
+          onPress={() => {
+            // Implement your navigation logic here
+            {/* navigation.navigate('General'); */ }
+          }}
+        >
+          <View style={[styles.viewMoreContainer]}>
+            <Text style={[styles.pressableBtn, styles.viewMoreBtn]}>Decline</Text>
+          </View>
+        </Pressable>
 
-          <Pressable
-            onPress={() => {
-              // Implement your navigation logic here
-             {/* navigation.navigate('General'); */}                 
-            }}
-          >
-            <View style={[styles.viewMoreContainer]}>
-              <Text style={[styles.pressableBtn, styles.viewMoreBtn]}>Send</Text>
-            </View>
-          </Pressable>
-        </View>  
+        <Pressable
+          onPress={() => {
+            // Implement your navigation logic here
+            {/* navigation.navigate('General'); */ }
+          }}
+        >
+          <View style={[styles.viewMoreContainer]}>
+            <Text style={[styles.pressableBtn, styles.viewMoreBtn]}>Send</Text>
+          </View>
+        </Pressable>
+      </View>
 
     </View>
-    
+
   );
 };
 
@@ -220,9 +220,10 @@ const styles = StyleSheet.create({
   dropdown: {
     height: 50,
     borderColor: '#6666E0',
-    borderWidth: 0.5,
+    borderWidth: 1.0,
     borderRadius: 8,
-    paddingHorizontal: 8,
+    paddingHorizontal: 16,
+    marginTop: 15,
   },
   icon: {
     marginRight: 5,
