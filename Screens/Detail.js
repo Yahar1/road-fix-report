@@ -155,17 +155,56 @@ const DropdownComponent = () => {
           setValue(item.value);
           setIsFocus(false);
         }}
-      />
+
+        />
+      <View style={[styles.viewMoreContainer, { marginTop: 20 }]}>
       <Pressable
         onPress={() => {
                 // Implement your navigation logic here
-                navigation.navigate('General');
+                navigation.navigate('General');      //ไปอีกหน้าใหม่
+              }}         
+      >
+        <View style={styles.viewMoreContainer}>
+          <Text style={[styles.pressableBtn, styles.viewMoreBtn]}>Upload Picture</Text>
+        </View>
+        </Pressable>
+
+      <Pressable
+        onPress={() => {
+                // Implement your navigation logic here
+                navigation.navigate('General');       //ไปอีกหน้าใหม่
               }}
       >
         <View style={styles.viewMoreContainer}>
-          <Text style={[styles.pressableBtn, styles.viewMoreBtn]}>Add More Report...</Text>
+          <Text style={[styles.pressableBtn, styles.viewMoreBtn]}>Locate GPS</Text>
         </View>
         </Pressable>
+        </View>
+
+        <View style={[styles.viewMoreContainer, { marginTop: 0, flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center'}]}>
+          <Pressable
+            onPress={() => {
+              // Implement your navigation logic here
+              {/* navigation.navigate('General'); */}                    
+            }}
+          >
+            <View style={[styles.viewMoreContainer]}>
+              <Text style={[styles.pressableBtn, styles.viewMoreBtn]}>Decline</Text>
+            </View>
+          </Pressable>
+
+          <Pressable
+            onPress={() => {
+              // Implement your navigation logic here
+             {/* navigation.navigate('General'); */}                 
+            }}
+          >
+            <View style={[styles.viewMoreContainer]}>
+              <Text style={[styles.pressableBtn, styles.viewMoreBtn]}>Send</Text>
+            </View>
+          </Pressable>
+        </View>  
+
     </View>
     
   );
@@ -212,7 +251,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
   viewMoreContainer: {
-    marginTop: 40,
+    marginTop: 3,
   },
   pressableBtn: {
     backgroundColor: '#BEBEBE',

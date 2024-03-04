@@ -5,18 +5,18 @@ import React from 'react';
 const General = () => {
   const navigation = useNavigation();
 
-  const handlePress = (imageNumber) => navigation.navigate('Detail', { imageNumber });
+  const handlePress = (imageNumber) => navigation.navigate('General_Users', { imageNumber });
 
   return (
-    <ScrollView>
+    <ScrollView style={{ backgroundColor: '#D3D3D3' }}>       
       <View style={styles.main}>
         <View style={styles.header}>
           <View style={styles.reportedFrame}>
-            <Pressable onPress={() => handlePress(1)} style={{ marginBottom: 15 }}>
-              <ImageBackground
+            <Pressable onPress={() => handlePress(1)} style={{ marginBottom: 15 }}>  
+              <ImageBackground 
                 source={require('../img/ถนนพัง1.jpg')}
                 resizeMode="cover"
-                style={{ borderRadius: 15, overflow: 'hidden', borderStartWidth: 10, flex: 1 }}
+                style={{ borderRadius: 15, overflow: 'hidden', borderStartWidth: 10, flex: 1 }}   //มุมวงรี
               >
                 <View>
                   <Text style={styles.pressableBtn1}>ตำบล ....... หมู่ ......</Text>
@@ -55,11 +55,11 @@ const General = () => {
               <Text style={styles.pressableBtn}>Reported</Text>
               <Text style={styles.pressableBtn}>Reported</Text>
               <Text style={styles.pressableBtn}>Reported</Text>
-              <Text style={styles.pressableBtn}>Reported</Text>
           </View>
 
         </View>
       </View>
+
       <Pressable
         onPress={() => {
           // Implement your navigation logic here
@@ -70,6 +70,7 @@ const General = () => {
           <Text style={[styles.pressableBtn, styles.viewMoreBtn]}>Add More Report...</Text>
         </View>
       </Pressable>
+
     </ScrollView>
   );
 };
