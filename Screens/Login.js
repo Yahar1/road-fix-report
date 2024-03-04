@@ -43,7 +43,7 @@ const Login = ({ navigation }) => {
                 keyboardType="email-address"
                 onChangeText={(email) => setForm({ ...form, email })}
                 placeholder="winnie@gmail.com"
-                placeholderTextColor="#boom2024"
+                placeholderTextColor="#A9A9A9"
                 style={styles.inputControl}
                 value={form.email}
               />
@@ -56,7 +56,7 @@ const Login = ({ navigation }) => {
                 autoCorrect={false}
                 onChangeText={(password) => setForm({ ...form, password })}
                 placeholder="********"
-                placeholderTextColor="#6b7280"
+                placeholderTextColor="#A9A9A9"
                 style={styles.inputControl}
                 secureTextEntry={true}
                 value={form.password}
@@ -73,6 +73,16 @@ const Login = ({ navigation }) => {
             <TouchableOpacity
               onPress={() => {
                 navigation.navigate('Sign_Up');
+              }}
+              style={{ marginTop: 'auto' }}>
+              <Text style={styles.formFooter}>
+                ยังไม่ได้สมัครลงชื่อเข้าใช้ ?{' '}
+                <Text style={{ textDecorationLine: 'underline' }}>ลงทะเบียน</Text>
+              </Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => {
+                navigation.navigate('Admin');
               }}
               style={{ marginTop: 'auto' }}>
               <Text style={styles.formFooter}>

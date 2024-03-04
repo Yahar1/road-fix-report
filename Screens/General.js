@@ -8,12 +8,12 @@ const General = () => {
   const handlePress = (imageNumber) => navigation.navigate('General_Users', { imageNumber });
 
   return (
-    <ScrollView style={{ backgroundColor: '#D3D3D3' }}>       
+    <ScrollView style={{ backgroundColor: '#D3D3D3' }}>
       <View style={styles.main}>
         <View style={styles.header}>
           <View style={styles.reportedFrame}>
-            <Pressable onPress={() => handlePress(1)} style={{ marginBottom: 15 }}>  
-              <ImageBackground 
+            <Pressable onPress={() => handlePress(1)} style={{ marginBottom: 15 }}>
+              <ImageBackground
                 source={require('../img/ถนนพัง1.jpg')}
                 resizeMode="cover"
                 style={{ borderRadius: 15, overflow: 'hidden', borderStartWidth: 10, flex: 1 }}   //มุมวงรี
@@ -37,7 +37,7 @@ const General = () => {
                 </View>
               </ImageBackground>
             </Pressable>
-              
+
 
             <Pressable onPress={() => handlePress(3)} style={{ marginBottom: 15 }}>
               <ImageBackground
@@ -50,11 +50,11 @@ const General = () => {
                   <Text style={styles.pressableBtn2}>Reported</Text>
                 </View>
               </ImageBackground>
-
             </Pressable>
-              <Text style={styles.pressableBtn}>Reported</Text>
-              <Text style={styles.pressableBtn}>Reported</Text>
-              <Text style={styles.pressableBtn}>Reported</Text>
+
+            <Text style={styles.pressableBtn}>Reported</Text>
+            <Text style={styles.pressableBtn}>Reported</Text>
+            <Text style={styles.pressableBtn}>Reported</Text>
           </View>
 
         </View>
@@ -95,13 +95,13 @@ const styles = StyleSheet.create({
   pressableBtn: {                           //------------------------------------ ปรับ
     backgroundColor: '#BEBEBE',
     color: '#fff',
-    padding: 20,                         
+    padding: 20,
     margin: 10,
     fontSize: 24,
     textAlign: 'center',
     shadowColor: '#000',
     elevation: 4,
-    borderRadius: 10,          
+    borderRadius: 10,
   },
   viewMoreBtn: {
     backgroundColor: '#4169E1',
