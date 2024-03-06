@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "795003922845",
+    "project_id": "react002-24f83",
+    "storage_bucket": "react002-24f83.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:795003922845:android:7b25fd556c3cac86b82774",
+        "android_client_info": {
+          "package_name": "com.react002"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAOqTjR-MRFEq7MNoWPuKGz4xwFbamcCsU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

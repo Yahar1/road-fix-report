@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { StyleSheet, SafeAreaView, View, Text, TouchableOpacity, TextInput, } from 'react-native';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
+import { useAuth } from './AuthContext';
 
 export default function Sign_Up({ navigation }) {
+  const { signup } = useAuth();
   const [form, setForm] = useState({
     fullname: '',
     email: '',
@@ -13,6 +15,11 @@ export default function Sign_Up({ navigation }) {
   const onPress = () => {
     navigation.navigate('Login');
     // Add your logic here for handling the sign-up button press
+  };
+
+  //ลงทะเบียน
+  const hendleSignUp = () => {
+    signup(form.email , form.password , form.fullname);
   };
 
   return (
@@ -70,8 +77,7 @@ export default function Sign_Up({ navigation }) {
 
               <TextInput
                 autoCorrect={false}
-                onChangeText={(confirmPassword) =>
-                  setForm({ ...form, confirmPassword })
+                onChangeText={(confirmPassword) => setForm({ ...form, confirmPassword })
                 }
                 placeholder="********"
                 placeholderTextColor="#6b7280"
@@ -82,7 +88,7 @@ export default function Sign_Up({ navigation }) {
             </View>
 
             <View style={styles.formAction}>
-              <TouchableOpacity onPress={onPress}>
+              <TouchableOpacity onPress={() => { hendleSignUp()}}>
                 <View style={styles.btn}>
                   <Text style={styles.btnText}>สมัคร</Text>
                 </View>
