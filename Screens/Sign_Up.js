@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyleSheet, SafeAreaView, View, Text, TouchableOpacity, TextInput, } from 'react-native';
+import { StyleSheet, SafeAreaView, View, Text, TouchableOpacity, TextInput, Alert} from 'react-native';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import { useAuth } from './AuthContext';
 
@@ -74,11 +74,9 @@ export default function Sign_Up({ navigation }) {
 
             <View style={styles.input}>
               <Text style={styles.inputLabel}>ยืนยันรหัสผ่าน</Text>
-
               <TextInput
                 autoCorrect={false}
-                onChangeText={(confirmPassword) => setForm({ ...form, confirmPassword })
-                }
+                onChangeText={(confirmPassword) => setForm({ ...form, confirmPassword })}
                 placeholder="********"
                 placeholderTextColor="#6b7280"
                 style={styles.inputControl}
@@ -88,7 +86,8 @@ export default function Sign_Up({ navigation }) {
             </View>
 
             <View style={styles.formAction}>
-              <TouchableOpacity onPress={() => { hendleSignUp()}}>
+              <TouchableOpacity onPress={() => 
+                { form.password === form.confirmPassword ? hendleSignUp():Alert.alert('รหัสผ่านไม่ตรงกัน')}}>
                 <View style={styles.btn}>
                   <Text style={styles.btnText}>สมัคร</Text>
                 </View>

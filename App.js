@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { View, Text, Pressable, Image } from 'react-native'
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
@@ -11,136 +11,149 @@ import General from './Screens/General';
 import Detail from './Screens/Detail';
 
 //AuthProvider ตรวจสอบการเข้าสู่ระบบ , ลงทะเบียน , etc.
-import { AuthProvider } from './Screens/AuthContext';
+import { AuthProvider, useAuth } from './Screens/AuthContext';
 
 const Stack = createNativeStackNavigator();
 
-const App = () => {
+export const Screen = () => {
   const onPress = () => {
     console.log('Pressed');
   };
 
-  return (
-    <AuthProvider>
-      <NavigationContainer>
-        <Stack.Navigator>
+  const { user, signOut } = useAuth();
+  const [stateScreen, SetstateScreen] = useState();
+  useEffect(() => {
+    user ? (SetstateScreen('General')) : (SetstateScreen('Splash'))
+  }, [user])
 
-          <Stack.Screen
-            name="Splash"
-            component={Splash}
-            options={({ navigation }) => ({
-              headerStyle: { backgroundColor: '#D2691E' },
-              headerTitleStyle: { color: '#FFFFFF' },
-              title: '   แจ้งซ่อมถนน',
-              headerLeft: () => (
+
+
+  return (
+    <NavigationContainer>
+      <Stack.Navigator
+        initialRouteName={stateScreen}
+      >
+        <Stack.Screen
+          name="Splash"
+          component={Splash}
+          options={({ navigation }) => ({
+            headerStyle: { backgroundColor: '#D2691E' },
+            headerTitleStyle: { color: '#FFFFFF' },
+            title: '   แจ้งซ่อมถนน',
+            headerLeft: () => (
+              <Image
+                source={require('./img/Logomain.png')}
+                style={{ width: 40, height: 40, paddingLeft: 20 }}
+              />
+            ),
+            headerRight: () => (
+              <Pressable
+                onPress={() => {
+                  // Implement your navigation logic here
+                  navigation.navigate('Login');
+                }}
+                style={{ marginRight: 10 }}
+              >
+                <Image
+                  source={require('./img/Login.png')}
+                  style={{ width: 40, height: 40 }}
+                />
+              </Pressable>
+            ),
+          })}
+
+        />
+        <Stack.Screen
+          name="General_Users"
+          component={General_Users}
+          options={{ title: 'Back' }}             //======================================= 
+
+        />
+        <Stack.Screen
+          name="Login"
+          component={Login}
+          options={({ navigation }) => ({
+            headerStyle: { backgroundColor: '#FFA07A' },
+            headerTitleStyle: { color: '#FFFFFF' },
+            title: '   แจ้งซ่อมถนน',
+            headerLeft: () => (
+              <Pressable
+                onPress={() => {
+                  // Implement your navigation logic here
+                  navigation.navigate('Splash');
+                }}
+                style={{ marginRight: 10 }}
+              >
                 <Image
                   source={require('./img/Logomain.png')}
                   style={{ width: 40, height: 40, paddingLeft: 20 }}
                 />
-              ),
-              headerRight: () => (
-                <Pressable
-                  onPress={() => {
-                    // Implement your navigation logic here
-                    navigation.navigate('Login');
-                  }}
-                  style={{ marginRight: 10 }}
-                >
-                  <Image
-                    source={require('./img/Login.png')}
-                    style={{ width: 40, height: 40 }}
-                  />
-                </Pressable>
-              ),
-            })}
-
-          />
-          <Stack.Screen
-            name="General_Users"
-            component={General_Users}
-            options={{ title: 'Back' }}             //======================================= 
-
-          />
-          <Stack.Screen
-            name="Login"
-            component={Login}
-            options={({ navigation }) => ({
-              headerStyle: { backgroundColor: '#FFA07A' },
-              headerTitleStyle: { color: '#FFFFFF' },
-              title: '   แจ้งซ่อมถนน',
-              headerLeft: () => (
-                <Pressable
-                  onPress={() => {
-                    // Implement your navigation logic here
-                    navigation.navigate('Splash');
-                  }}
-                  style={{ marginRight: 10 }}
-                >
-                  <Image
-                    source={require('./img/Logomain.png')}
-                    style={{ width: 40, height: 40, paddingLeft: 20 }}
-                  />
-                </Pressable>
-              ),
-              headerRight: () => (
-                <Pressable
-                  onPress={() => {
-                    // Implement your navigation logic here
-                    navigation.navigate('Login');
-                  }}
-                  style={{ marginRight: 10 }}
-                >
-                  {/* <Image
+              </Pressable>
+            ),
+            headerRight: () => (
+              <Pressable
+                onPress={() => {
+                  // Implement your navigation logic here
+                  navigation.navigate('Login');
+                }}
+                style={{ marginRight: 10 }}
+              >
+                {/* <Image
                 source={require('./img/operator.png')}
                 style={{ width: 40, height: 40 }}
               /> */}
-                </Pressable>
-              ),
-            })}
+              </Pressable>
+            ),
+          })}
 
-          />
-          <Stack.Screen
-            name="Sign_Up"
-            component={Sign_Up}
-            options={{ title: 'Sign In' }}
-          />
+        />
+        <Stack.Screen
+          name="Sign_Up"
+          component={Sign_Up}
+          options={{ title: 'Sign In' }}
+        />
 
-          <Stack.Screen
-            name="General"
-            component={General}
-            options={({ navigation }) => ({
-              headerStyle: { backgroundColor: '#1E90FF' },
-              headerTitleStyle: { color: '#FFFFFF' },
-              title: '   แจ้งซ่อมถนน',
-              headerLeft: () => (
+        <Stack.Screen
+          name="General"
+          component={General}
+          options={({ navigation }) => ({
+            headerStyle: { backgroundColor: '#1E90FF' },
+            headerTitleStyle: { color: '#FFFFFF' },
+            title: '   แจ้งซ่อมถนน',
+            headerLeft: () => (
+              <Image
+                source={require('./img/user.png')}
+                style={{ width: 40, height: 40, paddingLeft: 20 }}
+              />
+            ),
+            headerRight: () => (
+              <Pressable
+                onPress={() => {
+                  // Implement your navigation logic here
+                  signOut();
+                }}
+                style={{ marginRight: 10 }}
+              >
                 <Image
-                  source={require('./img/user.png')}
-                  style={{ width: 40, height: 40, paddingLeft: 20 }}
+                  source={require('./img/logout.png')}
+                  style={{ width: 40, height: 40 }}
                 />
-              ),
-              headerRight: () => (
-                <Pressable
-                  onPress={() => {
-                    // Implement your navigation logic here
-                    navigation.navigate('Login');
-                  }}
-                  style={{ marginRight: 10 }}
-                >
-                  <Image
-                    source={require('./img/logout.png')}
-                    style={{ width: 40, height: 40 }}
-                  />
-                </Pressable>
-              ),
-            })}
+              </Pressable>
+            ),
+          })}
 
-          />
-          <Stack.Screen name="Detail" component={Detail} />
+        />
+        <Stack.Screen name="Detail" component={Detail} />
 
-        </Stack.Navigator>
-      </NavigationContainer>
-    </AuthProvider>
+      </Stack.Navigator>
+    </NavigationContainer>
   )
 }
 
-export default App
+export default function App() {
+  return (
+    <AuthProvider>
+      <Screen />
+    </AuthProvider>
+  )
+}

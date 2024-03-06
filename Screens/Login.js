@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, Image, TouchableOpacity, TextInput, SafeAreaView, } from 'react-native';
+import { View, Text, StyleSheet, Image, TouchableOpacity, TextInput, SafeAreaView, Alert } from 'react-native';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
+import { useAuth } from './AuthContext';
 
 const Login = ({ navigation }) => {
+  const { signIn } = useAuth();
+
   const [form, setForm] = useState({
     email: '',
     password: '',
@@ -13,6 +16,10 @@ const Login = ({ navigation }) => {
   };
   const onPress1 = () => {
     navigation.navigate('Sign_Up');
+  };
+
+  const hendleSignIn = () => {
+    signIn(form.email, form.password);
   };
 
   return (
@@ -64,7 +71,7 @@ const Login = ({ navigation }) => {
             </View>
 
             <View style={styles.formAction}>
-              <TouchableOpacity onPress={onPress}>
+              <TouchableOpacity onPress={() => { form.email && form.password ? hendleSignIn() : Alert.alert('แจ้งเตือน', 'กรุณากรอกอีเมลและรหัสผ่าน')  }}>
                 <View style={styles.btn}>
                   <Text style={styles.btnText}>ลงชื่อเข้าใช้</Text>
                 </View>
@@ -80,6 +87,7 @@ const Login = ({ navigation }) => {
                 <Text style={{ textDecorationLine: 'underline' }}>ลงทะเบียน</Text>
               </Text>
             </TouchableOpacity>
+
             <TouchableOpacity
               onPress={() => {
                 navigation.navigate('Admin');
