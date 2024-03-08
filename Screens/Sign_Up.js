@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { StyleSheet, SafeAreaView, View, Text, TouchableOpacity, TextInput, Alert} from 'react-native';
+import { StyleSheet, SafeAreaView, View, Text, TouchableOpacity, TextInput, Alert } from 'react-native';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import { useAuth } from './AuthContext';
 
 export default function Sign_Up({ navigation }) {
-  const { signup } = useAuth();
+  const { signup, isLoading, setAuthState } = useAuth();
   const [form, setForm] = useState({
     fullname: '',
     email: '',
@@ -17,9 +17,14 @@ export default function Sign_Up({ navigation }) {
     // Add your logic here for handling the sign-up button press
   };
 
+  console.log('isLoadingSigin', isLoading);
   //ลงทะเบียน
   const hendleSignUp = () => {
-    signup(form.email , form.password , form.fullname);
+    signup(form.email, form.password, form.fullname);
+    if (isLoading === true) {
+      setForm((form) => ({ ...form, fullname: '', email: '', password: '', confirmPassword: '' }));
+    }
+    setAuthState((p) => ({ ...p, isLoading: false }))
   };
 
   return (
@@ -86,8 +91,7 @@ export default function Sign_Up({ navigation }) {
             </View>
 
             <View style={styles.formAction}>
-              <TouchableOpacity onPress={() => 
-                { form.password === form.confirmPassword ? hendleSignUp():Alert.alert('รหัสผ่านไม่ตรงกัน')}}>
+              <TouchableOpacity onPress={() => { form.password === form.confirmPassword ? hendleSignUp() : Alert.alert('รหัสผ่านไม่ตรงกัน') }}>
                 <View style={styles.btn}>
                   <Text style={styles.btnText}>สมัคร</Text>
                 </View>

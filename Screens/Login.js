@@ -20,6 +20,7 @@ const Login = ({ navigation }) => {
 
   const hendleSignIn = () => {
     signIn(form.email, form.password);
+
   };
 
   return (
@@ -71,7 +72,7 @@ const Login = ({ navigation }) => {
             </View>
 
             <View style={styles.formAction}>
-              <TouchableOpacity onPress={() => { form.email && form.password ? hendleSignIn() : Alert.alert('แจ้งเตือน', 'กรุณากรอกอีเมลและรหัสผ่าน')  }}>
+              <TouchableOpacity onPress={() => { form.email && form.password ? hendleSignIn() : Alert.alert('แจ้งเตือน', 'กรุณากรอกอีเมลและรหัสผ่าน') }}>
                 <View style={styles.btn}>
                   <Text style={styles.btnText}>ลงชื่อเข้าใช้</Text>
                 </View>
