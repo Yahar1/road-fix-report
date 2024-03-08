@@ -42,7 +42,7 @@ export const AuthProvider = ({ children }) => {
 
     const signup = async (email, password, fullname) => {
         try {
-            setAuthState((p) => ({ ...p, isLoading: true }));
+            
             await auth().createUserWithEmailAndPassword(email, password)
                 .then(() => {
                     firestore().collection('UserData')
@@ -53,9 +53,10 @@ export const AuthProvider = ({ children }) => {
                             fullname,
                         })
                     signOut();
+                    
                 })
             Alert.alert('ลงทะเบียนสำเร็จ', '', [
-                { text: 'OK', onPress: () => { navigation.navigate('Login') } }
+                { text: 'OK', onPress: () => { navigation.navigate('Login') , setAuthState((p) => ({ ...p, isLoading: true })) } }
             ]);
         } catch (err) {
             console.log((err));

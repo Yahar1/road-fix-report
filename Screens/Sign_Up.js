@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { StyleSheet, SafeAreaView, View, Text, TouchableOpacity, TextInput, Alert } from 'react-native';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import { useAuth } from './AuthContext';
@@ -17,14 +17,17 @@ export default function Sign_Up({ navigation }) {
     // Add your logic here for handling the sign-up button press
   };
 
-  console.log('isLoadingSigin', isLoading);
+  useEffect(() => {
+    if (isLoading === true) {
+      setForm({ fullname: '', email: '', password: '', confirmPassword: '' });
+      setAuthState((p) => ({ ...p, isLoading: false }))
+    }
+  }, [isLoading])
+
   //ลงทะเบียน
   const hendleSignUp = () => {
     signup(form.email, form.password, form.fullname);
-    if (isLoading === true) {
-      setForm((form) => ({ ...form, fullname: '', email: '', password: '', confirmPassword: '' }));
-    }
-    setAuthState((p) => ({ ...p, isLoading: false }))
+
   };
 
   return (
